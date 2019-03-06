@@ -1,0 +1,14 @@
+C:\Users\User\Documents\FixturesAPI\Fixtures.API\bin\Debug\netcoreapp2.1\Fixtures.API.deps.json
+C:\Users\User\Documents\FixturesAPI\Fixtures.API\bin\Debug\netcoreapp2.1\Fixtures.API.runtimeconfig.json
+C:\Users\User\Documents\FixturesAPI\Fixtures.API\bin\Debug\netcoreapp2.1\Fixtures.API.runtimeconfig.dev.json
+C:\Users\User\Documents\FixturesAPI\Fixtures.API\bin\Debug\netcoreapp2.1\Fixtures.API.dll
+C:\Users\User\Documents\FixturesAPI\Fixtures.API\bin\Debug\netcoreapp2.1\Fixtures.API.pdb
+C:\Users\User\Documents\FixturesAPI\Fixtures.API\obj\Debug\netcoreapp2.1\Fixtures.API.csprojAssemblyReference.cache
+C:\Users\User\Documents\FixturesAPI\Fixtures.API\obj\Debug\netcoreapp2.1\Fixtures.API.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\FixturesAPI\Fixtures.API\obj\Debug\netcoreapp2.1\Fixtures.API.RazorAssemblyInfo.cache
+C:\Users\User\Documents\FixturesAPI\Fixtures.API\obj\Debug\netcoreapp2.1\Fixtures.API.RazorAssemblyInfo.cs
+C:\Users\User\Documents\FixturesAPI\Fixtures.API\obj\Debug\netcoreapp2.1\Fixtures.API.AssemblyInfoInputs.cache
+C:\Users\User\Documents\FixturesAPI\Fixtures.API\obj\Debug\netcoreapp2.1\Fixtures.API.AssemblyInfo.cs
+C:\Users\User\Documents\FixturesAPI\Fixtures.API\obj\Debug\netcoreapp2.1\Fixtures.API.RazorTargetAssemblyInfo.cache
+C:\Users\User\Documents\FixturesAPI\Fixtures.API\obj\Debug\netcoreapp2.1\Fixtures.API.dll
+C:\Users\User\Documents\FixturesAPI\Fixtures.API\obj\Debug\netcoreapp2.1\Fixtures.API.pdb

@@ -35,7 +35,7 @@ namespace Fixtures.API.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name="GetTeam")]
         public async Task<IActionResult> GetTeam(int id)
         {
             var team = await _repository.GetTeam(id);

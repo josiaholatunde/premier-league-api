@@ -32,7 +32,7 @@ namespace Fixtures.API.Controllers
             return Ok(fixtures);
         }
 
-        [HttpGet("{fixtureId}")]
+        [HttpGet("{fixtureId}", Name="GetFeature")]
         public async Task<IActionResult> GetFixture(int teamId, int fixtureId)
         {
             var teamFromRepo = await _repository.GetTeam(teamId);
@@ -49,6 +49,7 @@ namespace Fixtures.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateTeamFixture(int teamId, [FromBody] FixtureToCreate fixtureToCreateDto)
         {
+            fixtureToCreateDto.TeamId = teamId;
             var teamFromRepo = await _repository.GetTeam(teamId);
             if (teamFromRepo == null)
                 return BadRequest("Team does not exist");

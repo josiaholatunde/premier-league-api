@@ -14,5 +14,6 @@ namespace Fixtures.API.DTOS
         public DateTime TimeOfPlay { get; set; }
         public string  LocationOfPlay { get; set; }
         public bool IsFixtureCompleted { get; set; }
+        public int TeamId { get; set; }
     }
 }

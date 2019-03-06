@@ -1,5 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Fixtures.API.Helpers;
 using Fixtures.API.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Fixtures.API.Data
 {
@@ -13,37 +18,89 @@ namespace Fixtures.API.Data
         }
         public void Add<T>(T entity) where T : class
         {
-            throw new System.NotImplementedException();
+            _context.Add<T>(entity);
         }
 
         public void Delete<T>(T entity) where T : class
         {
-            throw new System.NotImplementedException();
+            _context.Remove<T>(entity);
         }
 
-        public Task<Fixture> GetFixtures()
+        public async Task<Fixture> GetFixture(int fixtureId)
         {
-            throw new System.NotImplementedException();
+            var fixture = await _context.Fixtures.FirstOrDefaultAsync(fx => fx.Id == fixtureId);
+            if (fixture == null)
+                return null;
+            return fixture;
         }
 
-        public Task<User> GetUser(int userId)
+        public async Task<IEnumerable<Fixture>> GetFixtures(UserParams userParams)
         {
-            throw new System.NotImplementedException();
+            var fixtures = _context.Fixtures.AsQueryable();
+            if (userParams.IsFixtureCompleted.HasValue) {
+                if (userParams.IsFixtureCompleted.Value) {
+                    fixtures = fixtures.Where(fx => DateTime.Now >=fx.TimeOfPlay);
+                } else {
+                    fixtures = fixtures.Where(fx => DateTime.Now <= fx.TimeOfPlay);
+                }
+            }
+
+            return await fixtures.ToListAsync();
+        }
+        public async Task<IEnumerable<Fixture>> GetFixturesForTeam(int teamId)
+        {
+            var fixtures = await _context.Fixtures
+                                        .Where(fx => fx.TeamId == teamId)
+                                        .ToListAsync();
+            return fixtures;
+        }
+
+        public async Task<Team> GetTeam(int teamId)
+        {
+            var team = await _context.Teams.FirstOrDefaultAsync(tm => tm.Id == teamId);
+            if (team == null)
+                return null;
+            return team;
+        }
+
+        public async Task<IEnumerable<Team>> GetTeams()
+        {
+            var teams = await _context.Teams.ToListAsync();
+            return teams;
+        }
+
+        public async Task<User> GetUser(int userId)
+        {
+            var userFromRepo = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+            if (userFromRepo == null)
+                return null;
+            return userFromRepo;
         }
 
         public Task<bool> MakeUserAdmin(User user)
         {
-            throw new System.NotImplementedException();
+            return null;
         }
 
-        public Task<bool> SaveAllChangesAsync()
+        public async Task<bool> SaveAllChangesAsync()
         {
-            throw new System.NotImplementedException();
+           if (await _context.SaveChangesAsync() > 0)
+                return true;
+           return false;
+        }
+
+        public async Task<bool> TeamExists(string name)
+        {
+            if (await _context.Teams.AnyAsync(u => u.Name.ToLower() == name))
+                return true;
+            return false;
         }
 
         public void Update<T>(T entity) where T : class
         {
-            throw new System.NotImplementedException();
+            _context.Entry(entity).State = EntityState.Modified;
         }
+
+        
     }
 }

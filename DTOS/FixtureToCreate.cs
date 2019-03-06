@@ -1,8 +1,8 @@
 using System;
 
-namespace Fixtures.API.Models
+namespace Fixtures.API.DTOS
 {
-    public class Fixture
+    public class FixtureToCreate
     {
         public int Id { get; set; }
         public string HomeTeamName { get; set; }
@@ -14,8 +14,5 @@ namespace Fixtures.API.Models
         public DateTime TimeOfPlay { get; set; }
         public string  LocationOfPlay { get; set; }
         public bool IsFixtureCompleted { get; set; }
-        public Team Team { get; set; }
-        public int TeamId { get; set; }
-        
     }
 }

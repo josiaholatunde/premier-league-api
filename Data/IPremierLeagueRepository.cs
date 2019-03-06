@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Fixtures.API.Helpers;
 using Fixtures.API.Models;
@@ -10,7 +11,12 @@ namespace Fixtures.API.Data
         void Delete<T>(T entity) where T: class;
         void Update<T>(T entity) where T: class;
         Task<bool> SaveAllChangesAsync();
-        Task<Fixture> GetFixtures();
+        Task<IEnumerable<Fixture>> GetFixtures(UserParams userParams);
+        Task<IEnumerable<Team>> GetTeams();
+        Task<Team> GetTeam(int teamId);
+        Task<Fixture> GetFixture(int fixtureId);
+        Task<IEnumerable<Fixture>> GetFixturesForTeam(int teamId);
+        Task<bool> TeamExists(string username);
 
         Task<User> GetUser(int userId);
         Task<bool> MakeUserAdmin(User user);
